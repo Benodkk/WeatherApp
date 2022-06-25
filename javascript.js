@@ -121,22 +121,22 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=Warsaw&APPID=9c5a1dbf98
         temperatureF.textContent = Math.round(response.main.temp*9/5-459.67)+'°F'
         weather = response.weather[0].main
         weatherType.textContent = weather
-        if (weather='Clear'){
+        if (weather=='Clear'){
             weatherImg.src = "./01d@2x.png"
         }
-        else if (weather='Clouds'){
+        else if (weather=='Clouds'){
             weatherImg.src = "./04d@2x.png"
         }
-        else if (weather='Drizzle'){
+        else if (weather=='Drizzle'){
             weatherImg.src = "./09d@2x.png"
         }
-        else if (weather='Rain'){
+        else if (weather=='Rain'){
             weatherImg.src = "./10d@2x.png"
         }
-        else if (weather='Thunderstorm'){
+        else if (weather=='Thunderstorm'){
             weatherImg.src = "./11d@2x.png"
         }
-        else if (weather='Snow '){
+        else if (weather=='Snow '){
             weatherImg.src = "./13d@2x.png"
         }
         else if (weather =='Mist' || weather == 'Smoke' || weather =='Haze' || weather == 'Dust' || weather == 'Fog' || weather == 'Sand' || weather == 'Dust' || weather == 'Ash' || weather == 'Squall' || weather == 'Tornado'){
@@ -147,13 +147,13 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=Warsaw&APPID=9c5a1dbf98
         if (visibilityValue>500){
             visibilityOpinion.textContent="Good"
         }
-        else if (visiblityValue<=500 && visiblityValue>200){
+        else if (visibilityValue<=500 && visibilityValue>200){
             visibilityOpinion.textContent="Limited"
         }
-        else if (visiblityValue<=200 && visiblityValue>100){
+        else if (visibilityValue<=200 && visibilityValue>100){
             visibilityOpinion.textContent="Bad"
         }
-        else if (visiblityValue<=100){
+        else if (visibilityValue<=100){
             visibilityOpinion.textContent="Very bad"
         }
         if (visibilityValue>1000){
@@ -210,13 +210,13 @@ submit.addEventListener('click', () => {
             if (visibilityValue>500){
                 visibilityOpinion.textContent="Good"
             }
-            else if (visiblityValue<=500 && visiblityValue>200){
+            else if (visibilityValue<=500 && visibilityValue>200){
                 visibilityOpinion.textContent="Limited"
             }
-            else if (visiblityValue<=200 && visiblityValue>100){
+            else if (visibilityValue<=200 && visibilityValue>100){
                 visibilityOpinion.textContent="Bad"
             }
-            else if (visiblityValue<=100){
+            else if (visibilityValue<=100){
                 visibilityOpinion.textContent="Very bad"
             }
             if (visibilityValue>1000){
