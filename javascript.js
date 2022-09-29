@@ -125,32 +125,32 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=Warsaw&APPID=9c5a1dbf98
         weather = response.weather[0].main
         weatherType.textContent = weather
         if (weather=='Clear'){
-            weatherImg.src = "./01d@2x.png"
-            document.body.style.backgroundImage="url('clear.jpg')"
+            weatherImg.src = "./Assets/01d@2x.png"
+            document.body.style.backgroundImage="url('./Assets/clear.jpg')"
         }
         else if (weather=='Clouds'){
-            weatherImg.src = "./04d@2x.png"
-            document.body.style.backgroundImage="url('cloudy.jpg')"
+            weatherImg.src = "./Assets/04d@2x.png"
+            document.body.style.backgroundImage="url('./Assets/cloudy.jpg')"
         }
         else if (weather=='Drizzle'){
-            weatherImg.src = "./09d@2x.png"
-            document.body.style.backgroundImage="url('drizzle.jpg')"
+            weatherImg.src = "./Assets/09d@2x.png"
+            document.body.style.backgroundImage="url('./Assets/drizzle.jpg')"
         }
         else if (weather=='Rain'){
-            weatherImg.src = "./10d@2x.png"
-            document.body.style.backgroundImage="url('rain.jpg')"
+            weatherImg.src = "./Assets/10d@2x.png"
+            document.body.style.backgroundImage="url('./Assets/rain.jpg')"
         }
         else if (weather=='Thunderstorm'){
-            weatherImg.src = "./11d@2x.png"
-            document.body.style.backgroundImage="url('thunderstorm.jpg')"
+            weatherImg.src = "./Assets/11d@2x.png"
+            document.body.style.backgroundImage="url('./Assets/thunderstorm.jpg')"
         }
         else if (weather=='Snow '){
-            weatherImg.src = "./13d@2x.png"
-            document.body.style.backgroundImage="url('snow.jpg')"
+            weatherImg.src = "./Assets/13d@2x.png"
+            document.body.style.backgroundImage="url('./Assets/snow.jpg')"
         }
         else if (weather =='Mist' || weather == 'Smoke' || weather =='Haze' || weather == 'Dust' || weather == 'Fog' || weather == 'Sand' || weather == 'Dust' || weather == 'Ash' || weather == 'Squall' || weather == 'Tornado'){
-            weatherImg.src = "./50d@2x.png"
-            document.body.style.backgroundImage="url('mist.jpg')"
+            weatherImg.src = "./Assets/50d@2x.png"
+            document.body.style.backgroundImage="url('./Assets/mist.jpg')"
         }
         windSpeed.textContent =response.wind.speed+'m/s'
         visibilityValue=response.visibility
@@ -194,32 +194,32 @@ submit.addEventListener('click', () => {
             weather = response.weather[0].main
             weatherType.textContent = weather
             if (weather=='Clear'){
-                weatherImg.src = "./01d@2x.png"
-                document.body.style.backgroundImage="url('clear.jpg')"
+                weatherImg.src = "./Assets/01d@2x.png"
+                document.body.style.backgroundImage="url('./Assets/clear.jpg')"
             }
             else if (weather=='Clouds'){
-                weatherImg.src = "./04d@2x.png"
-                document.body.style.backgroundImage = "url('cloudy.jpg')"
+                weatherImg.src = "./Assets/04d@2x.png"
+                document.body.style.backgroundImage = "url('./Assets/cloudy.jpg')"
             }
             else if (weather=='Drizzle'){
-                weatherImg.src = "./09d@2x.png"
-                document.body.style.backgroundImage="url('drizzle.jpg')"
+                weatherImg.src = "./Assets/09d@2x.png"
+                document.body.style.backgroundImage="url('./Assets/drizzle.jpg')"
             }
             else if (weather=='Rain'){
-                weatherImg.src = "./10d@2x.png"
-                document.body.style.backgroundImage="url('rain.jpg')"
+                weatherImg.src = "./Assets/10d@2x.png"
+                document.body.style.backgroundImage="url('./Assets/rain.jpg')"
             }
             else if (weather=='Thunderstorm'){
-                weatherImg.src = "./11d@2x.png"
-                document.body.style.backgroundImage="url('thunderstorm.jpg')"
+                weatherImg.src = "./Assets/11d@2x.png"
+                document.body.style.backgroundImage="url('./Assets/thunderstorm.jpg')"
             }
             else if (weather=='Snow '){
-                weatherImg.src = "./13d@2x.png"
-                document.body.style.backgroundImage="url('snow.jpg')"
+                weatherImg.src = "./Assets/13d@2x.png"
+                document.body.style.backgroundImage="url('./Assets/snow.jpg')"
             }
             else if (weather =='Mist' || weather == 'Smoke' || weather =='Haze' || weather == 'Dust' || weather == 'Fog' || weather == 'Sand' || weather == 'Dust' || weather == 'Ash' || weather == 'Squall' || weather == 'Tornado'){
-                weatherImg.src = "./50d@2x.png"
-                document.body.style.backgroundImage="url('mist.jpg')"
+                weatherImg.src = "./Assets/50d@2x.png"
+                document.body.style.backgroundImage="url('./Assets/mist.jpg')"
             }
             wind.textContent='Wind:'
             windSpeed.textContent =response.wind.speed+'m/s'
