@@ -6,7 +6,7 @@ body.appendChild(form)
 let search = document.createElement('input');
 search.setAttribute('type', 'text');
 search.setAttribute('name', 'search');
-search.setAttribute('placeholder', 'Write the name of the city');
+search.setAttribute('placeholder', 'City');
 form.appendChild(search);
 
 let submit = document.createElement('input')
@@ -15,8 +15,13 @@ submit.setAttribute('value', 'SEARCH')
 submit.classList.add('submitBtn')
 form.appendChild(submit)
 
+
+let temperatureContainer = document.createElement('div')
+body.appendChild(temperatureContainer)
+temperatureContainer.classList.add('containerTemp')
+
 let title = document.createElement('div')
-body.appendChild(title)
+temperatureContainer.appendChild(title)
 title.classList.add('title')
 
 let city = document.createElement('div')
@@ -28,13 +33,10 @@ title.appendChild(weatherImg)
 weatherImg.classList.add('weatherImg')
 
 
-let temperatureContainer = document.createElement('div')
-body.appendChild(temperatureContainer)
-temperatureContainer.classList.add('container')
 
 let temperature = document.createElement('div')
 temperatureContainer.appendChild(temperature)
-temperature.textContent='Temperature:'
+temperature.textContent='Temperature'
 temperature.classList.add('leftPart')
 
 let temperatureTypes = document.createElement('div')
@@ -53,9 +55,25 @@ let temperatureF = document.createElement('div')
 temperatureTypes.appendChild(temperatureF)
 temperatureF.classList.add('one')
 
+let detailsContainer = document.createElement('div')
+body.appendChild(detailsContainer)
+detailsContainer.classList.add('detailsContainer')
+
+let windContainer = document.createElement('div')
+detailsContainer.appendChild(windContainer)
+windContainer.classList.add('container')
+
+let wind = document.createElement('div')
+windContainer.appendChild(wind)
+wind.classList.add('wind')
+wind.textContent='Wind:'
+
+let windSpeed = document.createElement('div')
+windContainer.appendChild(windSpeed)
+windSpeed.classList.add('one')
 
 let weatherConditionsContainer = document.createElement('div')
-body.appendChild(weatherConditionsContainer)
+detailsContainer.appendChild(weatherConditionsContainer)
 weatherConditionsContainer.classList.add('container')
 
 let weatherConditions = document.createElement('div')
@@ -72,23 +90,8 @@ let weatherType = document.createElement('div')
 weatherDescription.appendChild(weatherType)
 weatherType.classList.add('one')
 
-
-let windContainer = document.createElement('div')
-body.appendChild(windContainer)
-windContainer.classList.add('container')
-
-let wind = document.createElement('div')
-windContainer.appendChild(wind)
-wind.classList.add('wind')
-wind.textContent='Wind:'
-
-let windSpeed = document.createElement('div')
-windContainer.appendChild(windSpeed)
-windSpeed.classList.add('one')
-
-
 let visibilityContainer = document.createElement('div')
-body.appendChild(visibilityContainer)
+detailsContainer.appendChild(visibilityContainer)
 visibilityContainer.classList.add('container')
 
 let visibilityValue
@@ -123,24 +126,31 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=Warsaw&APPID=9c5a1dbf98
         weatherType.textContent = weather
         if (weather=='Clear'){
             weatherImg.src = "./01d@2x.png"
+            document.body.style.backgroundImage="url('clear.jpg')"
         }
         else if (weather=='Clouds'){
             weatherImg.src = "./04d@2x.png"
+            document.body.style.backgroundImage="url('cloudy.jpg')"
         }
         else if (weather=='Drizzle'){
             weatherImg.src = "./09d@2x.png"
+            document.body.style.backgroundImage="url('drizzle.jpg')"
         }
         else if (weather=='Rain'){
             weatherImg.src = "./10d@2x.png"
+            document.body.style.backgroundImage="url('rain.jpg')"
         }
         else if (weather=='Thunderstorm'){
             weatherImg.src = "./11d@2x.png"
+            document.body.style.backgroundImage="url('thunderstorm.jpg')"
         }
         else if (weather=='Snow '){
             weatherImg.src = "./13d@2x.png"
+            document.body.style.backgroundImage="url('snow.jpg')"
         }
         else if (weather =='Mist' || weather == 'Smoke' || weather =='Haze' || weather == 'Dust' || weather == 'Fog' || weather == 'Sand' || weather == 'Dust' || weather == 'Ash' || weather == 'Squall' || weather == 'Tornado'){
             weatherImg.src = "./50d@2x.png"
+            document.body.style.backgroundImage="url('mist.jpg')"
         }
         windSpeed.textContent =response.wind.speed+'m/s'
         visibilityValue=response.visibility
@@ -168,6 +178,7 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=Warsaw&APPID=9c5a1dbf98
 submit.addEventListener('click', () => {
     event.preventDefault()
     let lookingFor=form.elements['search'].value
+    weatherImg.style.display='block'
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${lookingFor}&APPID=9c5a1dbf98aaef67ea4e5e683bb005a2`, {mode: 'cors'})
         .then(function(response){
@@ -184,24 +195,31 @@ submit.addEventListener('click', () => {
             weatherType.textContent = weather
             if (weather=='Clear'){
                 weatherImg.src = "./01d@2x.png"
+                document.body.style.backgroundImage="url('clear.jpg')"
             }
             else if (weather=='Clouds'){
                 weatherImg.src = "./04d@2x.png"
+                document.body.style.backgroundImage = "url('cloudy.jpg')"
             }
             else if (weather=='Drizzle'){
                 weatherImg.src = "./09d@2x.png"
+                document.body.style.backgroundImage="url('drizzle.jpg')"
             }
             else if (weather=='Rain'){
                 weatherImg.src = "./10d@2x.png"
+                document.body.style.backgroundImage="url('rain.jpg')"
             }
             else if (weather=='Thunderstorm'){
                 weatherImg.src = "./11d@2x.png"
+                document.body.style.backgroundImage="url('thunderstorm.jpg')"
             }
             else if (weather=='Snow '){
                 weatherImg.src = "./13d@2x.png"
+                document.body.style.backgroundImage="url('snow.jpg')"
             }
             else if (weather =='Mist' || weather == 'Smoke' || weather =='Haze' || weather == 'Dust' || weather == 'Fog' || weather == 'Sand' || weather == 'Dust' || weather == 'Ash' || weather == 'Squall' || weather == 'Tornado'){
                 weatherImg.src = "./50d@2x.png"
+                document.body.style.backgroundImage="url('mist.jpg')"
             }
             wind.textContent='Wind:'
             windSpeed.textContent =response.wind.speed+'m/s'
@@ -232,7 +250,7 @@ submit.addEventListener('click', () => {
             temperatureF.textContent=''
             weatherConditions.textContent=''
             weatherType.textContent=''
-            weatherImg.src=''
+            weatherImg.style.display='none'
             wind.textContent=''
             windSpeed.textContent=''
             visibility.textContent=''
